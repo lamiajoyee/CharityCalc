@@ -46,99 +46,131 @@
 
     </RelativeLayout>
     <!-- RIGHT TITLE PART -->
-    <GridLayout android:columnCount="2"
-        android:rowCount="2"
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_weight="2"
         android:background="@color/bgTitleRight"
-        >
+        android:columnCount="2"
+        android:rowCount="3">
 
-                <LinearLayout android:layout_height="wrap_content"
-                    android:layout_width="wrap_content" >
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" android:src="@mipmap/income_icon"/>
-                    <TextView
-                        android:id="@+id/income_label_value"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="marquee"
-                        android:fadingEdge="horizontal"
-                        android:singleLine="false"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:text="45k"
-                        android:gravity="right" />
-                </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin">
 
-                <LinearLayout android:layout_column="1" android:layout_height="wrap_content" android:layout_width="wrap_content">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" android:src="@mipmap/expenses"/>
-                    <TextView
-                        android:id="@+id/expenditure_label_value"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="marquee"
-                        android:fadingEdge="horizontal"
-                        android:singleLine="true"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:text="45k"
-                        android:layout_gravity="center"
-                        android:gravity="right" />
-                </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/income_icon" />
 
+            <TextView
+                android:id="@+id/income_label_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:gravity="right"
+                android:singleLine="false"
+                android:text="45k"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin">
 
-                <LinearLayout android:layout_row="1" android:layout_height="wrap_content" android:layout_width="wrap_content">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" android:src="@mipmap/charity_icon"/>
-                    <TextView
-                        android:id="@+id/charity_label_value"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="marquee"
-                        android:fadingEdge="horizontal"
-                        android:singleLine="true"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:text="45k"
-                        android:layout_gravity="center"
-                        android:gravity="right" />
-                </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/expenses" />
 
-                <LinearLayout android:layout_column="1" android:layout_height="wrap_content" android:layout_width="wrap_content">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" android:src="@mipmap/savings_icon"/>
-                    <TextView
-                        android:id="@+id/savings_label_value"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="marquee"
-                        android:fadingEdge="horizontal"
-                        android:singleLine="true"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:text="45k"
-                        android:layout_gravity="center"
-                        android:gravity="right" />
-                </LinearLayout>
+            <TextView
+                android:id="@+id/expenditure_label_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="45k"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_columnSpan="2"
+            android:src="@color/contentBadgeTitle" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            squint:layout_marginTop="@dimen/activity_horizontal_margin">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/charity_icon" />
+
+            <TextView
+                android:id="@+id/charity_label_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="45k"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            squint:layout_marginTop="@dimen/activity_horizontal_margin">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/savings_icon" />
+
+            <TextView
+                android:id="@+id/savings_label_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="45k"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
 
     </GridLayout>
 
     <TextView
         android:id="@+id/date_label"
         android:layout_width="40dp"
-        android:layout_height="wrap_content" android:text="Jan 2017"
-        android:gravity="top|right"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/activity_vertical_margin"
-        android:textSize="18sp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:gravity="top|right"
+        android:singleLine="false"
+        android:text="Jan 2017"
         android:textAllCaps="true"
-        android:singleLine="false" />
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp" />
 </LinearLayout>
