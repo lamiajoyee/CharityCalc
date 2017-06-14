@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.GridLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:columnCount="3"
+    app:rowCount="5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="false">
+
+    <TextView
+        app:layout_columnSpan="3"
+        android:layout_width="0dp"
+        app:layout_gravity="fill_horizontal" />
+
+    <android.support.v7.widget.AppCompatButton
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:background="@drawable/first_button_selector"
+        app:backgroundTint="@drawable/first_button_selector"
+         />
+    <android.support.v7.widget.AppCompatButton
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:background="@drawable/second_button_selector"
+        app:backgroundTint="@drawable/second_button_selector"
+          />
+    <android.support.v7.widget.AppCompatButton
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:background="@drawable/third_button_selector"
+        app:backgroundTint="@drawable/third_button_selector"
+         />
+
+    <ImageView app:layout_columnSpan="3"/>
+
+    <TextView
+        app:layout_columnSpan="3"
+        android:layout_width="0dp"
+        app:layout_gravity="fill_horizontal" />
+
+    <android.support.v7.widget.AppCompatButton
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:background="@drawable/first_button_selector"
+        app:backgroundTint="@drawable/first_button_selector"
+        />
+    <android.support.v7.widget.AppCompatButton
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:background="@drawable/second_button_selector"
+        app:backgroundTint="@drawable/second_button_selector"
+         />
+    <android.support.v7.widget.AppCompatButton
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:background="@drawable/third_button_selector"
+        app:backgroundTint="@drawable/third_button_selector"
+         />
+
+</android.support.v7.widget.GridLayout>
