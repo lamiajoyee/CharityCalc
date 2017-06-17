@@ -6,10 +6,7 @@
     <!-- the normal bg color will be light grey -->
     <item>
         <shape>
-            <gradient
-                android:startColor="#3F084C"
-                android:endColor="#6F238B"
-                android:angle="45"/>
+            <solid android:color="@color/bgBackSideColor"/>
         </shape>
     </item>
 
