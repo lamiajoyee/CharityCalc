@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="#FFFF0000"> <!-- The ripple will be red -->
+    android:color="#6F238B"> <!-- The ripple will be red -->
 
     <!-- the normal bg color will be light grey -->
     <item>
         <shape>
             <gradient
-                android:startColor="#e52d27"
-                android:endColor="#b31217"
+                android:startColor="#3F084C"
+                android:endColor="#6F238B"
                 android:angle="45"/>
         </shape>
     </item>

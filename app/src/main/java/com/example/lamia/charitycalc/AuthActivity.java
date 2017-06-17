@@ -1,50 +1,41 @@
 package com.example.lamia.charitycalc;
 
-import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatDrawableManager;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class AuthActivity extends AppCompatActivity {
 
+    ImageButton sign_in_facebook, sign_up_facebook, sign_in_google, sign_up_google, sign_in_email;
+
+    TextView sign_in_text, sign_up_text, or_text;
+
+    Button skip_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
-        useCompatVectorIfNeeded();
+
+        skip_button = (Button) findViewById(R.id.skip_button);
+        sign_up_facebook = (ImageButton) findViewById(R.id.sign_up_facebook);
+
+        sign_in_google = (ImageButton) findViewById(R.id.sign_in_google);
+        sign_up_google = (ImageButton) findViewById(R.id.sign_up_google);
+
+        or_text = (TextView) findViewById(R.id.or_text);
+
+        sign_in_text = (TextView) findViewById(R.id.sign_in_text);
+        sign_up_text = (TextView) findViewById(R.id.sign_up_text);
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/Anton-Regular.ttf");
+        sign_up_text.setTypeface(custom_font);
+        sign_in_text.setTypeface(custom_font);
+        skip_button.setTypeface(custom_font);
+        or_text.setTypeface(custom_font);
     }
 
-    private void useCompatVectorIfNeeded() {
-        int sdkInt = Build.VERSION.SDK_INT;
-        if (sdkInt == 21 || sdkInt == 22) { //vector drawables scale correctly in API level 23
-            try {
-                AppCompatDrawableManager drawableManager = AppCompatDrawableManager.get();
-                Class<?> inflateDelegateClass = Class.forName("android.support.v7.widget.AppCompatDrawableManager$InflateDelegate");
-                Class<?> vdcInflateDelegateClass = Class.forName("android.support.v7.widget.AppCompatDrawableManager$VdcInflateDelegate");
-
-                Constructor<?> constructor = vdcInflateDelegateClass.getDeclaredConstructor();
-                constructor.setAccessible(true);
-                Object vdcInflateDelegate = constructor.newInstance();
-
-                Class<?> args[] = {String.class, inflateDelegateClass};
-                Method addDelegate = AppCompatDrawableManager.class.getDeclaredMethod("addDelegate", args);
-                addDelegate.setAccessible(true);
-                addDelegate.invoke(drawableManager, "vector", vdcInflateDelegate);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }
+
