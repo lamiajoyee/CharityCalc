@@ -8,7 +8,7 @@ import android.widget.ImageButton;
  * Created by Lamia on 17-Jun-17.
  */
 
-public class SquareImageButton extends ImageButton {
+public class SquareImageButton extends android.support.v7.widget.AppCompatImageButton {
 
     public SquareImageButton (Context context) {
         super(context);

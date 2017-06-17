@@ -1,8 +1,9 @@
 package com.example.lamia.charitycalc;
 
-import android.content.ClipData;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.transition.Slide;
+import android.transition.TransitionInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        setupWindowAnimations();
         ListView theListView = (ListView) findViewById(R.id.mainListView);
 
         // prepare elements to display
@@ -58,4 +59,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-}
+
+    private void setupWindowAnimations() {
+        Slide fade =(Slide) TransitionInflater.from(this).inflateTransition(R.transition.activity_slide);
+        getWindow().setEnterTransition(fade);
+    }}

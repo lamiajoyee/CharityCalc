@@ -2,14 +2,20 @@ package com.example.lamia.charitycalc;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.Slide;
+import android.transition.TransitionInflater;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.animation.LinearInterpolator;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -31,39 +37,21 @@ public class AuthActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setupWindowAnimations();
         setContentView(R.layout.activity_auth);
 
-        //buttons
-        skip_button = (Button) findViewById(R.id.skip_button);
-        sign_up_facebook = (ImageButton) findViewById(R.id.sign_up_facebook);
 
-        //layouts
-        sign_in_layout = (LinearLayout) findViewById(R.id.sign_in_layout);
-        sign_up_layout = (LinearLayout) findViewById(R.id.sign_up_layout);
-        skip_button_layout = (LinearLayout) findViewById(R.id.skip_button_layout);
 
-        //textviews
-        or_text = (TextView) findViewById(R.id.or_text);
-        sign_in_text = (TextView) findViewById(R.id.sign_in_text);
-        sign_up_text = (TextView) findViewById(R.id.sign_up_text);
+        InitializeControls();
 
-        //fonts
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/Anton-Regular.ttf");
-        sign_up_text.setTypeface(custom_font);
-        sign_in_text.setTypeface(custom_font);
-        skip_button.setTypeface(custom_font);
-        or_text.setTypeface(custom_font);
-
+        SetFont();
 
         ViewTreeObserver vto = skip_button_layout.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                // Put your code here.
-                Display display = getWindowManager().getDefaultDisplay();
-                Point size = new Point();
-                display.getSize(size);
-                float displayWidth = size.x;
+
+                float displayWidth = getDisplayWidth();
 
                 float skipButtonHeight = skip_button_layout.getHeight();
 
@@ -113,7 +101,61 @@ public class AuthActivity extends AppCompatActivity {
 
         });
 
+        SetTranslucentSystemTray();
     }
 
+    private void SetTranslucentSystemTray() {
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+    }
+
+    private float getDisplayWidth() {
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        return (float) size.x;
+    }
+
+    private void SetFont() {
+        //fonts
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/Anton-Regular.ttf");
+        sign_up_text.setTypeface(custom_font);
+        sign_in_text.setTypeface(custom_font);
+        skip_button.setTypeface(custom_font);
+        or_text.setTypeface(custom_font);
+    }
+
+    private void InitializeControls() {
+        //buttons
+        skip_button = (Button) findViewById(R.id.skip_button);
+        sign_up_facebook = (ImageButton) findViewById(R.id.sign_up_facebook);
+
+        //layouts
+        sign_in_layout = (LinearLayout) findViewById(R.id.sign_in_layout);
+        sign_up_layout = (LinearLayout) findViewById(R.id.sign_up_layout);
+        skip_button_layout = (LinearLayout) findViewById(R.id.skip_button_layout);
+
+        //textviews
+        or_text = (TextView) findViewById(R.id.or_text);
+        sign_in_text = (TextView) findViewById(R.id.sign_in_text);
+        sign_up_text = (TextView) findViewById(R.id.sign_up_text);
+    }
+
+    public void skip_click(View v)
+    {
+        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+        Intent intent = new Intent(this, MainActivity.class);
+
+        this.startActivity(intent,bundle);
+//                startActivity(intent);
+    }
+
+
+    private void setupWindowAnimations() {
+        Slide slide = (Slide) TransitionInflater.from(this).inflateTransition(R.transition.activity_slide);
+        getWindow().setExitTransition(slide);
+    }
 }
 

@@ -6,7 +6,7 @@
     <!-- the normal bg color will be light grey -->
     <item>
         <shape>
-            <solid android:color="@color/bgBackSideColor"/>
+            <solid android:color="@color/contentDividerLine"/>
         </shape>
     </item>
 

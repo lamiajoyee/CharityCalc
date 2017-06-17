@@ -134,12 +134,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Skip"
-                android:textSize="36dp"
+                android:textSize="32sp"
                 android:background="@drawable/skip_button_bakcground"
                 android:textColor="@color/colorPrimary"
                 android:textAlignment="center"
                 android:layout_margin="0dp"
-                        />
+                android:onClick="skip_click"
+                />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
