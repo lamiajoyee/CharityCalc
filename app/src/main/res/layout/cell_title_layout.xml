@@ -13,26 +13,20 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_weight="3"
-        android:layout_height="100dp">
+        android:layout_height="150dp">
 
-            <com.intrusoft.squint.DiagonalView
-                android:id="@+id/diagonal1"
-                android:layout_width="match_parent"
-                android:scaleType="centerCrop"
-                squint:diagonalDirection="bottom_to_top"
-                squint:angle="30"
-                squint:solidColor="@color/colorAccent"
-                diagonal:solidColor="@color/colorAccent"
-                diagonal:diagonalDirection="top_to_bottom"
-                android:layout_height="160dp">
-            </com.intrusoft.squint.DiagonalView>
+            <ImageView
+                android:scaleType="fitXY"
+                android:layout_width="220dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/op95"/>
             <TextView
                 android:id="@+id/goal_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
                 android:textSize="26sp"
-                android:gravity="center"
+                android:gravity="right"
                 android:layout_alignParentLeft="false"
                 android:text="50%"
                 android:layout_centerInParent="false"
