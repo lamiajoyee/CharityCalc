@@ -1,5 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/trial"
+    android:orientation="horizontal"
+    android:weightSum="4">
+
+        <TextView
+        android:id="@+id/total_goal_amount"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textSize="32sp"
+        android:textColor="@color/bgContent"
+        android:text="100%"
+        android:layout_marginStart="12dp"    />
+
+    <GridLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_weight="2"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/income_icon" />
+
+            <TextView
+                android:id="@+id/income_label_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:gravity="right"
+                android:text="45k"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="@dimen/activity_horizontal_margin">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:src="@mipmap/expenses" />
+
+            <TextView
+                android:id="@+id/expenditure_label_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="45k"
+                android:textColor="@color/bgContent"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:src="@mipmap/charity_icon" />
+
+            <TextView
+                android:id="@+id/charity_label_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="45k"
+                android:textColor="@color/bgContent"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:src="@mipmap/savings_icon" />
+
+            <TextView
+                android:id="@+id/savings_label_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="45k"
+                android:textColor="@color/bgContent"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/date_label"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_weight="1"
+        android:gravity="top|right"
+        android:text="Jan 2017"
+        android:textAllCaps="true"
+        android:textColor="@color/bgContent"
+        android:textSize="18sp" />
+</LinearLayout>
+
+
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:diagonal="http://schemas.android.com/apk/res-auto"
@@ -8,7 +152,7 @@
     android:baselineAligned="false"
     android:orientation="horizontal">
 
-    <!-- LEFT TITLE PART -->
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -39,7 +183,7 @@
 
 
     </RelativeLayout>
-    <!-- RIGHT TITLE PART -->
+
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -167,4 +311,5 @@
         android:textAllCaps="true"
         android:textColor="@color/colorAccent"
         android:textSize="18sp" />
-</LinearLayout>
+</LinearLayout>-->
+

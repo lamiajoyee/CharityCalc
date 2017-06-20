@@ -40,8 +40,6 @@ public class AuthActivity extends AppCompatActivity {
         setupWindowAnimations();
         setContentView(R.layout.activity_auth);
 
-
-
         InitializeControls();
 
         SetFont();

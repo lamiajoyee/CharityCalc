@@ -1,6 +1,7 @@
 package com.example.lamia.charitycalc;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +22,12 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
     private HashSet<Integer> unfoldedIndexes = new HashSet<>();
     private View.OnClickListener defaultRequestBtnClickListener;
 
+    Typeface custom_font;
 
     public FoldingCellListAdapter(Context context, List<Item> objects) {
         super(context, 0, objects);
+
+        custom_font = Typeface.createFromAsset(context.getAssets(), "fonts/Anton-Regular.ttf");
     }
 
     @Override
@@ -39,7 +43,7 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
             cell = (FoldingCell) vi.inflate(R.layout.cell, parent, false);
 
             // binding view parts to view holder
-            viewHolder.goal = (TextView) cell.findViewById(R.id.goal_label);
+            viewHolder.goal = (TextView) cell.findViewById(R.id.total_goal_amount);
             viewHolder.income = (TextView) cell.findViewById(R.id.income_label_value);
             viewHolder.expenses = (TextView) cell.findViewById(R.id.expenditure_label_value);
             viewHolder.charity = (TextView) cell.findViewById(R.id.charity_label_value);
@@ -48,6 +52,9 @@ public class FoldingCellListAdapter extends ArrayAdapter<Item> {
 
             viewHolder.contentRequestBtn = (TextView) cell.findViewById(R.id.content_request_btn);
             cell.setTag(viewHolder);
+
+            viewHolder.goal.setTypeface(custom_font);
+
         } else {
             // for existing cell set valid valid state(without animation)
             if (unfoldedIndexes.contains(position)) {

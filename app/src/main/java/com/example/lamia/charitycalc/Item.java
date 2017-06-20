@@ -88,7 +88,7 @@ public class Item {
      */
     public static ArrayList<Item> getTestingList() {
         ArrayList<Item> items = new ArrayList<>();
-        items.add(new Item(50, 25, 30, 2, 3, "Jan 17"));
+        items.add(new Item(100, 25, 30, 2, 3, "Jan 17"));
         items.add(new Item(50, 25, 30, 2, 3, "Feb 17"));
         items.add(new Item(50, 25, 30, 2, 3, "Mar 17"));
         items.add(new Item(50, 25, 30, 2, 3, "Apr 17"));
