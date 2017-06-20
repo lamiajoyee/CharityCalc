@@ -91,10 +91,12 @@ public class Item {
         ArrayList<Item> items = new ArrayList<>();
         items.add(new Item(100, 2500, 30, 2, 3, "Jan '17"));
         items.add(new Item(93, 200, 30, 2, 3, "Feb '17"));
-        items.add(new Item(90, 25000, 30, 2, 3, "Mar '17"));
-        items.add(new Item(100, 900, 30, 2, 3, "Apr '17"));
+        items.add(new Item(85, 25000, 30, 2, 3, "Mar '17"));
+        items.add(new Item(68, 900, 30, 2, 3, "Apr '17"));
         items.add(new Item(95, 25000, 30, 2, 3, "May '17"));
-        items.add(new Item(98, 253, 30, 2, 3, "Jun '17"));
+        items.add(new Item(58, 253, 30, 2, 3, "Jun '17"));
+        items.add(new Item(78, 253, 30, 2, 3, "Jun '17"));
+        items.add(new Item(48, 253, 30, 2, 3, "Jun '17"));
 
         return items;
 
