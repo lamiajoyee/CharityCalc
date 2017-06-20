@@ -16,6 +16,7 @@ public class Item {
     private int charity;
     private int savings;
     private String date;
+
     private View.OnClickListener requestBtnClickListener;
 
     public Item(int goal, int income, int expenses, int charity, int savings, String date) {
@@ -88,12 +89,12 @@ public class Item {
      */
     public static ArrayList<Item> getTestingList() {
         ArrayList<Item> items = new ArrayList<>();
-        items.add(new Item(100, 25, 30, 2, 3, "Jan 17"));
-        items.add(new Item(50, 25, 30, 2, 3, "Feb 17"));
-        items.add(new Item(50, 25, 30, 2, 3, "Mar 17"));
-        items.add(new Item(50, 25, 30, 2, 3, "Apr 17"));
-        items.add(new Item(50, 25, 30, 2, 3, "May 17"));
-        items.add(new Item(50, 25, 30, 2, 3, "Jun 17"));
+        items.add(new Item(100, 2500, 30, 2, 3, "Jan '17"));
+        items.add(new Item(93, 200, 30, 2, 3, "Feb '17"));
+        items.add(new Item(90, 25000, 30, 2, 3, "Mar '17"));
+        items.add(new Item(100, 900, 30, 2, 3, "Apr '17"));
+        items.add(new Item(95, 25000, 30, 2, 3, "May '17"));
+        items.add(new Item(98, 253, 30, 2, 3, "Jun '17"));
 
         return items;
 

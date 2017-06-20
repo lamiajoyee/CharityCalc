@@ -33,4 +33,5 @@ dependencies {
     compile 'com.github.IntruderShanky:Squint:3.0.1'
     compile 'com.daasuu:EasingInterpolator:1.0.0'
     compile 'ru.egslava:blurredview:1.0'
+    compile 'javax.annotation:javax.annotation-api:1.2'
 }
