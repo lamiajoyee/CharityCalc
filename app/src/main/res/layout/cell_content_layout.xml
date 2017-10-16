@@ -8,37 +8,43 @@
     <!-- content header line -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/bgContentTop"
-        android:paddingBottom="7dp"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:paddingTop="7dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/order_id_mock"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+        <com.makeramen.roundedimageview.RoundedImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/bgExtended"
+            android:layout_height="@dimen/main_item_height"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            app:riv_corner_radius_top_left="6dip"
+            app:riv_corner_radius_top_right="6dip"
+            app:riv_mutate_background="true"
+            />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:text="@string/price_mock"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/menu_icon" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/total_goal_amount_extended"
+                android:textSize="28sp"
+                android:textColor="@color/bgContent"
+                android:layout_weight="1"
+                />
 
+            <TextView
+                android:id="@+id/date_label_extended"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/bgContent"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                />
+        </LinearLayout>
     </RelativeLayout>
 
     <!-- content header image -->

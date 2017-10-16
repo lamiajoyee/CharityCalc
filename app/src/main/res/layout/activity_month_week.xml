@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="3"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <Button
+        android:id="@+id/daily"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/daily_button_background"
+        android:text="daily"
+        android:textColor="@color/bgContent"
+        android:textAllCaps="true"
+        android:textSize="32sp"
+        />
+
+    <Button
+        android:id="@+id/weekly"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/weekly_button_background"
+        android:text="weekly"
+        android:textColor="@color/bgContent"
+        android:textAllCaps="true"
+        android:textSize="32sp"/>
+
+    <Button
+        android:id="@+id/monthly"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/monthly_button_background"
+        android:text="monthly"
+        android:textColor="@color/bgContent"
+        android:textAllCaps="true"
+        android:textSize="32sp"
+        />
+
+</LinearLayout>

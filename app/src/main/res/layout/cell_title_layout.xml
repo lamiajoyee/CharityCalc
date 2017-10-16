@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="140dp"
-
-        android:background="@drawable/image_shadow"
-        >
-
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:id="@+id/bg"
-            android:background="@drawable/image_shadow"
-            />
-
-    </LinearLayout>
-
-
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <com.makeramen.roundedimageview.RoundedImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/bg"
+        android:layout_height="@dimen/main_item_height"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        app:riv_corner_radius="6dip"
+        app:riv_mutate_background="true"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

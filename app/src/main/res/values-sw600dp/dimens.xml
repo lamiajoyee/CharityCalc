@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="auth_header_height">240dp</dimen>
+
+    <dimen name="main_header_height">480dp</dimen>
+    <dimen name="main_item_height">220dp</dimen>
+</resources>

@@ -3,6 +3,6 @@
 
     <item android:drawable="@color/btnRequest" android:state_selected="true"></item>
     <item android:drawable="@color/btnRequest" android:state_pressed="true"></item>
-    <item android:drawable="@drawable/email_gradient"></item>
+    <item android:drawable="@color/contentDividerLine"></item>
 
 </selector>

@@ -1,26 +1,37 @@
 package com.example.lamia.charitycalc;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.transition.Slide;
-import android.transition.TransitionInflater;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import com.ramotion.foldingcell.FoldingCell;
+import com.example.lamia.charitycalc.models.Item;
 
 import java.util.ArrayList;
 
+import static com.example.lamia.charitycalc.utility.UtilityClass.SetTranslucentSystemTray;
+
 public class MainActivity extends AppCompatActivity {
+
+    RecyclerView recycler_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setupWindowAnimations();
-        ListView theListView = (ListView) findViewById(R.id.mainListView);
+        //setupWindowAnimations();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            SetTranslucentSystemTray(this);
+        }
+
+        recycler_view = (RecyclerView) findViewById(R.id.recycler_view);
 
         // prepare elements to display
         final ArrayList<Item> items = Item.getTestingList();
@@ -34,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
-        final FoldingCellListAdapter adapter = new FoldingCellListAdapter(this, items);
+        final FoldingCellListAdapter adapter = new FoldingCellListAdapter(this, items, R.layout.cell);
 
         // add default btn handler for each request btn on each item if custom handler not found
         adapter.setDefaultRequestBtnClickListener(new View.OnClickListener() {
@@ -44,23 +55,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // set elements to adapter
-        theListView.setAdapter(adapter);
-
-        // set on click event listener to list view
-        theListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        adapter.setFoldUnfoldListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
-                // toggle clicked cell state
-                ((FoldingCell) view).toggle(false);
-                // register in adapter that state for selected cell is toggled
-                adapter.registerToggle(pos);
+            public void onClick(View v) {
+
             }
         });
 
+        // set elements to adapter
+        recycler_view.setAdapter(adapter);
+        recycler_view.setLayoutManager(new LinearLayoutManager(this));
+
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        CollapsingToolbarLayout collapsingToolbar =
+                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbar.setTitle("All Months");
+
     }
 
-    private void setupWindowAnimations() {
-        Slide fade =(Slide) TransitionInflater.from(this).inflateTransition(R.transition.activity_slide);
-        getWindow().setEnterTransition(fade);
-    }}
+    public void fab_click(View v)
+    {
+        Intent intent = new Intent(this, MonthWeekActivity.class);
+        this.startActivity(intent);
+    }
+}

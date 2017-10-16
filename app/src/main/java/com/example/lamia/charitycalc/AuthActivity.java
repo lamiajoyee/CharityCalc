@@ -2,31 +2,27 @@ package com.example.lamia.charitycalc;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.app.ActivityOptions;
 import android.content.Intent;
-import android.graphics.Point;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.transition.Slide;
-import android.transition.TransitionInflater;
-import android.view.Display;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.daasuu.ei.Ease;
 import com.daasuu.ei.EasingInterpolator;
+import com.example.lamia.charitycalc.controls.SquareImageButton;
+
+import static com.example.lamia.charitycalc.utility.UtilityClass.SetTranslucentSystemTray;
+import static com.example.lamia.charitycalc.utility.UtilityClass.getDisplayWidth;
 
 public class AuthActivity extends AppCompatActivity {
 
-    ImageButton sign_in_facebook, sign_up_facebook, sign_in_google, sign_up_google, sign_in_email;
+    SquareImageButton sign_in_facebook, sign_up_facebook, sign_in_email, sign_up_email, sign_in_google, sign_up_google;
 
     TextView sign_in_text, sign_up_text, or_text;
 
@@ -37,19 +33,19 @@ public class AuthActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupWindowAnimations();
         setContentView(R.layout.activity_auth);
 
         InitializeControls();
-
         SetFont();
+
+        setupWindowAnimations();
 
         ViewTreeObserver vto = skip_button_layout.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
 
-                float displayWidth = getDisplayWidth();
+                float displayWidth = getDisplayWidth(AuthActivity.this);
 
                 float skipButtonHeight = skip_button_layout.getHeight();
 
@@ -99,36 +95,23 @@ public class AuthActivity extends AppCompatActivity {
 
         });
 
-        SetTranslucentSystemTray();
-    }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            SetTranslucentSystemTray(this);
+        }
 
-    private void SetTranslucentSystemTray() {
-        Window window = this.getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
-    }
-
-    private float getDisplayWidth() {
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        return (float) size.x;
-    }
-
-    private void SetFont() {
-        //fonts
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/Anton-Regular.ttf");
-        sign_up_text.setTypeface(custom_font);
-        sign_in_text.setTypeface(custom_font);
-        skip_button.setTypeface(custom_font);
-        or_text.setTypeface(custom_font);
     }
 
     private void InitializeControls() {
         //buttons
         skip_button = (Button) findViewById(R.id.skip_button);
-        sign_up_facebook = (ImageButton) findViewById(R.id.sign_up_facebook);
+        sign_in_facebook = (SquareImageButton) findViewById(R.id.sign_in_facebook);
+        sign_up_facebook = (SquareImageButton) findViewById(R.id.sign_up_facebook);
+
+        sign_in_google = (SquareImageButton) findViewById(R.id.sign_in_google);
+        sign_up_google = (SquareImageButton) findViewById(R.id.sign_up_google);
+
+        sign_in_email = (SquareImageButton) findViewById(R.id.sign_in_email);
+        sign_up_email = (SquareImageButton) findViewById(R.id.sign_up_email);
 
         //layouts
         sign_in_layout = (LinearLayout) findViewById(R.id.sign_in_layout);
@@ -141,19 +124,24 @@ public class AuthActivity extends AppCompatActivity {
         sign_up_text = (TextView) findViewById(R.id.sign_up_text);
     }
 
-    public void skip_click(View v)
-    {
-        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
-        Intent intent = new Intent(this, MainActivity.class);
-
-        this.startActivity(intent,bundle);
-//                startActivity(intent);
+    private void SetFont() {
+        //fonts
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/Anton-Regular.ttf");
+        sign_up_text.setTypeface(custom_font);
+        sign_in_text.setTypeface(custom_font);
+        skip_button.setTypeface(custom_font);
+        or_text.setTypeface(custom_font);
     }
 
+    public void skip_click(View v)
+    {
+        Intent intent = new Intent(this, MainActivity.class);
+        this.startActivity(intent);
+    }
 
     private void setupWindowAnimations() {
-        Slide slide = (Slide) TransitionInflater.from(this).inflateTransition(R.transition.activity_slide);
-        getWindow().setExitTransition(slide);
+        //Slide slide = (Slide) TransitionInflater.from(this).inflateTransition(R.transition.activity_slide);
+        //getWindow().setExitTransition(slide);
     }
 }
 
